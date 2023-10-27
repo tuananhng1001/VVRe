@@ -2,7 +2,7 @@ package com.example.basekotlinproject.base
 
 import com.google.gson.annotations.SerializedName
 
-data class BaseResponse(
+data class BaseResponse<T>(
     @SerializedName("status")
     val status: Int = 0,
 
@@ -13,5 +13,5 @@ data class BaseResponse(
     val errorMessage: String? = "",
 
     @SerializedName("data")
-    val data: String? = "",
+    val data: T? = null,
 )

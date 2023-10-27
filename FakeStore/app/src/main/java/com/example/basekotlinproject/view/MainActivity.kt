@@ -10,21 +10,25 @@ import com.example.basekotlinproject.base.BaseActivity
 import com.example.basekotlinproject.base.BaseViewModel
 import com.example.basekotlinproject.databinding.ActivityMainBinding
 import com.example.basekotlinproject.utils.Notification
+import com.example.basekotlinproject.viewmodel.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private val baseViewModel by viewModels<BaseViewModel>()
+    private val productViewModel by viewModels<ProductViewModel>()
     override fun initView() {
         binding.text.text = "Ahihi"
     }
 
     override fun initObserver() {
+        productViewModel.products.observe(this){
+            it.toString()
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun doWork() {
-
+        productViewModel.getProducts()
     }
 
     override fun getResLayoutId(): Int = R.layout.activity_main

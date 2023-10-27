@@ -5,7 +5,7 @@ import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
 import com.example.basekotlinproject.BuildConfig
-import com.example.basekotlinproject.data.remote.BaseService
+import com.example.basekotlinproject.data.remote.ProductApis
 import com.example.basekotlinproject.utils.SharePreference
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -103,6 +103,6 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideAuthService(retrofit: Retrofit): BaseService =
-        retrofit.create(BaseService::class.java)
+    fun provideAuthService(retrofit: Retrofit): ProductApis =
+        retrofit.create(ProductApis::class.java)
 }
